@@ -1,35 +1,10 @@
-<?php
-session_start();
-
-// Mostrar mensaje de error si viene por parámetro
-$error = $_GET['error'] ?? '';
-$msgerror = '';
-switch ($error) {
-    case 'campos_vacios':
-        $msgerror = 'Por favor, complete todos los campos.';
-        break;
-    case 'credenciales_invalidas':
-        $msgerror = 'Usuario o contraseña incorrectos.';
-        break;
-    case 'error_bd':
-        $msgerror = 'Error en la base de datos.';
-        break;
-}
-
-// Si el usuario ya está autenticado, mostrar página de inicio
-if (isset($_SESSION["id_usuario"])) {
-    header('Location: index.php');
-    exit;
-}
-
-// Si no está autenticado, mostrar formulario de login (y posible mensaje de registro)
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login - FlowChat</title>
+    <title>Login Escuela</title>
     <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/validar_login.js"></script> <!-- Archivo externo -->
 </head>
 <body>
     <div class="login-container">
@@ -38,7 +13,8 @@ if (isset($_SESSION["id_usuario"])) {
             <p class="msg-error"><strong><?= htmlspecialchars($msgerror) ?></strong></p>
         <?php endif; ?>
 
-        <form method="post" action="proc/procesar_login.php">
+        <!-- Llamada a la función JS externa -->
+        <form method="post" action="proc/procesar_login.php" onsubmit="return validarLogin();">
             <label for="username">Usuario:</label>
             <input type="text" id="username" name="username" required><br><br>
 
