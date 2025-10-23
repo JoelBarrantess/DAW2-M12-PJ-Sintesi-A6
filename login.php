@@ -1,3 +1,30 @@
+<?php
+session_start();
+
+// Mostrar mensaje de error si viene por parámetro
+$error = $_GET['error'] ?? '';
+$msgerror = '';
+switch ($error) {
+    case 'campos_vacios':
+        $msgerror = 'Por favor, complete todos los campos.';
+        break;
+    case 'credenciales_invalidas':
+        $msgerror = 'Usuario o contraseña incorrectos.';
+        break;
+    case 'error_bd':
+        $msgerror = 'Error en la base de datos.';
+        break;
+}
+
+// Si el usuario ya está autenticado, mostrar página de inicio
+if (isset($_SESSION["id_usuario"])) {
+    header('Location: index.php');
+    exit;
+}
+
+// Si no está autenticado, mostrar formulario de login (y posible mensaje de registro)
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
