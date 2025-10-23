@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS db_joan23;
+USE db_joan23;
 -- Tabla de usuarios
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
