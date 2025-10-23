@@ -24,12 +24,14 @@ if (isset($_SESSION["id_usuario"])) {
 
 // Si no está autenticado, mostrar formulario de login (y posible mensaje de registro)
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login - FlowChat</title>
+    <title>Login Escuela</title>
     <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/validar_login.js"></script> <!-- Archivo externo -->
 </head>
 <body>
     <div class="login-container">
@@ -38,7 +40,8 @@ if (isset($_SESSION["id_usuario"])) {
             <p class="msg-error"><strong><?= htmlspecialchars($msgerror) ?></strong></p>
         <?php endif; ?>
 
-        <form method="post" action="proc/procesar_login.php">
+        <!-- Llamada a la función JS externa -->
+        <form method="post" action="proc/procesar_login.php" onsubmit="return validarLogin();">
             <label for="username">Usuario:</label>
             <input type="text" id="username" name="username" required><br><br>
 
