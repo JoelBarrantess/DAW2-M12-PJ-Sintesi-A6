@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'conexion.php';
+require_once '../conexion/conexion.php';
 
 // Recibe usuario y contraseña por POST
 $username = trim($_POST['username'] ?? '');
