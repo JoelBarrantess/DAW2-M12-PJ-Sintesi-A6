@@ -1,0 +1,130 @@
+/* ======== Estilos generales ======== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #dce0e3; /* gris claro */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ======== Contenedor principal ======== */
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 1200px;
+    gap: 120px; /* espacio entre logo y login */
+}
+
+/* ======== Imagen del logo ======== */
+.imagen {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* alinea logo hacia el centro */
+}
+
+.imagen img {
+    width: 380px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ======== Caja de login ======== */
+.login-container {
+    flex: 1;
+    background-color: #fff;
+    padding: 35px 45px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 350px;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ======== Campos y etiquetas ======== */
+label {
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* ======== Botón ======== */
+button {
+    width: 100%;
+    background-color: #0b518c;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #083f6a;
+}
+
+/* ======== Enlace de registro ======== */
+p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #333;
+}
+
+p a {
+    color: #0b518c;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* ======== Responsive ======== */
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        padding: 40px 0;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .imagen {
+        justify-content: center;
+    }
+
+    .imagen img {
+        width: 250px;
+    }
+
+    .login-container {
+        width: 90%;
+        max-width: 340px;
+    }
+}
