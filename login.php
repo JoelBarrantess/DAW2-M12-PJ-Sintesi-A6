@@ -17,17 +17,20 @@ if (isset($_SESSION["id_usuario"])) {
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
+    <div class="imagen">
+        <img src="./img/logo_escuela" alt="">
+    </div>
     <div class="login-container">
         <h2>Iniciar sesión</h2>
 
         <form method="post" action="proc/procesar_login.php">
-            <label for="username">Usuario:</label>
+            <label for="username">Usuario</label>
             <input type="text" id="username" name="username" required><br><br>
 
-            <label for="password">Contraseña:</label>
+            <label for="password">Contraseña</label>
             <input type="password" id="password" name="password" required><br><br>
 
-            <button type="submit">Entrar</button>
+            <button type="submit">iniciar sesión</button>
         </form>
 
         <p>¿No tienes cuenta? <a href="register.php">Regístrate</a></p>
