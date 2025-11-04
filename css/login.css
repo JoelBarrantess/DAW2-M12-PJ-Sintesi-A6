@@ -57,7 +57,8 @@ label {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -129,5 +130,18 @@ p a:hover {
     }
 }
  
+
+/* ======== Mensajes de error (validación cliente) ======== */
+.error {
+    color: #c00;
+    font-size: 0.95rem;
+    margin-top: 4px;
+    display: block;
+}
+
+.input-error {
+    outline: 2px solid rgba(200,0,0,0.15);
+}
+
 
 

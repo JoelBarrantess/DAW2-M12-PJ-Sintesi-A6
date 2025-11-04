@@ -12,7 +12,7 @@ if (isset($_SESSION["id_usuario"])) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Registro - FlowChat</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
@@ -46,24 +46,30 @@ if (isset($_SESSION["id_usuario"])) {
                 </div>
             <?php endif; ?>
 
-            <form method="post" action="proc/procesar_register.php">
+            <form id="registerForm" method="post" action="proc/procesar_register.php" novalidate>
                 <label for="username">Usuario</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" required aria-describedby="usernameError">
+                <span class="error" id="usernameError" aria-live="polite"></span>
 
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombre" name="nombre" required aria-describedby="nombreError">
+                <span class="error" id="nombreError" aria-live="polite"></span>
 
                 <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido" required>
+                <input type="text" id="apellido" name="apellido" required aria-describedby="apellidoError">
+                <span class="error" id="apellidoError" aria-live="polite"></span>
 
                 <label for="email">Correo</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required aria-describedby="emailError">
+                <span class="error" id="emailError" aria-live="polite"></span>
 
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required aria-describedby="passwordError">
+                <span class="error" id="passwordError" aria-live="polite"></span>
 
                 <button type="submit">Registrar</button>
             </form>
+            <script src="./js/validacion_register.js"></script>
 
             <p>¿Ya tienes cuenta? <a href="login.php">Inicia sesión</a></p>
         </div>
