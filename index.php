@@ -15,7 +15,7 @@ if (isset($_SESSION['loginok']) && $_SESSION['loginok'] === true && isset($_SESS
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Inicio - FlowChat</title>
+    <title>Inicio</title>
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
