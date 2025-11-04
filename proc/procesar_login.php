@@ -11,6 +11,17 @@ if ($username === '' || $password === '') {
     exit;
 }
 
+// Validaciones básicas servidor-side
+if (mb_strlen($username) < 3) {
+    header('Location: ../login.php?error=usuario_corto');
+    exit;
+}
+
+if (mb_strlen($password) < 6) {
+    header('Location: ../login.php?error=password_corto');
+    exit;
+}
+
 try {
     // Buscar usuario en la tabla `users` (según BBDD.sql)
     $stmt = $conn->prepare('SELECT id, username, nombre, password_hash FROM users WHERE username = :username LIMIT 1');

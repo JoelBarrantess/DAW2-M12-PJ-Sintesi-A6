@@ -34,8 +34,26 @@ if (isset($_SESSION["id_usuario"])) {
                         case 'usuario_existente':
                             echo 'El nombre de usuario o correo ya está en uso.';
                             break;
+                        case 'usuario_corto':
+                            echo 'El nombre de usuario es demasiado corto (mín. 3 caracteres).';
+                            break;
+                        case 'nombre_corto':
+                            echo 'El nombre es demasiado corto (mín. 2 caracteres).';
+                            break;
+                        case 'apellido_corto':
+                            echo 'El apellido es demasiado corto (mín. 2 caracteres).';
+                            break;
+                        case 'email_invalido':
+                            echo 'Introduce una dirección de correo electrónico válida.';
+                            break;
+                        case 'password_corto':
+                            echo 'La contraseña es demasiado corta (mín. 6 caracteres).';
+                            break;
                         case 'error_bd':
                             echo 'Error al registrar el usuario.';
+                            break;
+                        default:
+                            echo 'Error en el registro.';
                             break;
                     }
                     ?>

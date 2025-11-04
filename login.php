@@ -26,6 +26,33 @@ if (isset($_SESSION["id_usuario"])) {
 
         <div class="login-container">
             <h2>Iniciar sesión</h2>
+            <?php if (isset($_GET['error'])): ?>
+                <div class="error" style="color: #c0392b; font-size: 14px; text-align:center; margin-bottom: 15px;">
+                    <?php
+                    switch ($_GET['error']) {
+                        case 'campos_vacios':
+                            echo 'Por favor, completa todos los campos.';
+                            break;
+                        case 'credenciales_invalidas':
+                            echo 'Usuario o contraseña incorrectos.';
+                            break;
+                        case 'usuario_corto':
+                            echo 'El nombre de usuario es demasiado corto (mín. 3 caracteres).';
+                            break;
+                        case 'password_corto':
+                            echo 'La contraseña es demasiado corta (mín. 6 caracteres).';
+                            break;
+                        case 'error_bd':
+                            echo 'Error de servidor. Intenta más tarde.';
+                            break;
+                        default:
+                            echo 'Error en el inicio de sesión.';
+                            break;
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
+
             <form id="loginForm" method="post" action="proc/procesar_login.php" novalidate>
                 <label for="username">Usuario</label>
                 <input type="text" id="username" name="username" required aria-describedby="usernameError"><br>

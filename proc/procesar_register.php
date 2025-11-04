@@ -8,8 +8,35 @@ $apellido = trim($_POST['apellido'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $password = $_POST['password'] ?? '';
 
+// Campos obligatorios
 if ($username === '' || $nombre === '' || $apellido === '' || $email === '' || $password === '') {
     header('Location: ../register.php?error=campos_vacios');
+    exit;
+}
+
+// Validaciones del lado servidor (coinciden con la validación cliente)
+if (mb_strlen($username) < 3) {
+    header('Location: ../register.php?error=usuario_corto');
+    exit;
+}
+
+if (mb_strlen($nombre) < 2) {
+    header('Location: ../register.php?error=nombre_corto');
+    exit;
+}
+
+if (mb_strlen($apellido) < 2) {
+    header('Location: ../register.php?error=apellido_corto');
+    exit;
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header('Location: ../register.php?error=email_invalido');
+    exit;
+}
+
+if (mb_strlen($password) < 6) {
+    header('Location: ../register.php?error=password_corto');
     exit;
 }
 
