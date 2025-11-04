@@ -1,7 +1,6 @@
 <?php
 session_start();
-// Incluir la conexión PDO. Ajusta la ruta si es necesario.
-require_once __DIR__ . '/../conexion/conexion.php';
+require_once '../conexion/conexion.php';
 
 // Recibe usuario y contraseña por POST
 $username = trim($_POST['username'] ?? '');
